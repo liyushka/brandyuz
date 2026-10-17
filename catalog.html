@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRANDY_UZ — Mahsulotlar Katalogi | Online Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#111111',
+                            gold: '#D4AF37',
+                            light: '#F9F9F9',
+                            muted: '#777777',
+                            accent: '#C5A059'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-dark text-white text-xs py-2 px-4 text-center font-medium tracking-wider">
+        <span>✨ Barcha tovarlar sifat sertifikatiga ega. O'zbekiston bo'ylab express yetkazib berish!</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-widest text-brand-dark uppercase">BRANDY<span class="text-brand-gold">.UZ</span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="index.html" class="text-gray-700 hover:text-brand-gold transition">Bosh sahifa</a>
+                <a href="catalog.html" class="text-brand-gold font-semibold transition">Katalog</a>
+                <a href="product.html" class="text-gray-700 hover:text-brand-gold transition">Mahsulot</a>
+                <a href="cart.html" class="text-gray-700 hover:text-brand-gold transition">Savat</a>
+                <a href="about.html" class="text-gray-700 hover:text-brand-gold transition">Biz haqimizda</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="cart.html" class="relative p-2 text-gray-700 hover:text-brand-gold transition" aria-label="Savat">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-badge" class="absolute top-0 right-0 bg-brand-gold text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </a>
+                <a href="https://t.me/brandy_uz" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-brand-dark text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider hover:bg-brand-gold transition duration-300">
+                    <i class="fa-brands fa-telegram text-sm"></i> Telegram Kanal
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html" class="block text-gray-700 py-2 border-b border-gray-100">Bosh sahifa</a>
+            <a href="catalog.html" class="block text-brand-gold font-semibold py-2 border-b border-gray-100">Katalog</a>
+            <a href="product.html" class="block text-gray-700 py-2 border-b border-gray-100">Mahsulot</a>
+            <a href="cart.html" class="block text-gray-700 py-2 border-b border-gray-100">Savat</a>
+            <a href="about.html" class="block text-gray-700 py-2">Biz haqimizda</a>
+        </div>
+    </header>
+
+    <!-- Page Title Banner -->
+    <section class="bg-brand-dark text-white py-12 px-4 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto text-center space-y-3">
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Mahsulotlar Katalogi</h1>
+            <p class="text-gray-400 text-xs sm:text-sm max-w-xl mx-auto">
+                @brandy_uz brendining barcha zamonaviy hamda eksklyuziv mahsulotlari bilan tanishing.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- Sidebar Filter -->
+            <aside class="w-full lg:w-1/4 space-y-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 h-fit">
+                <div>
+                    <h3 class="text-lg font-extrabold text-brand-dark mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-filter text-brand-gold"></i> Filtrlar
+                    </h3>
+                    
+                    <!-- Search Input -->
+                    <div class="mb-6">
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-2">Qidiruv</label>
+                        <div class="relative">
+                            <input type="text" id="search-input" placeholder="Mahsulot nomini yozing..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold outline-none text-xs">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="mb-6">
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-2">Kategoriyalar</label>
+                        <div class="space-y-2 text-xs">
+                            <button onclick="filterCategory('all')" class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium transition bg-brand-gold text-white" data-cat="all">Barchasi</button>
+                            <button onclick="filterCategory('watch')" class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium transition text-gray-700 hover:bg-gray-100" data-cat="watch">Soatlar</button>
+                            <button onclick="filterCategory('audio')" class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium transition text-gray-700 hover:bg-gray-100" data-cat="audio">Audio va Naushniklar</button>
+                            <button onclick="filterCategory('shoes')" class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium transition text-gray-700 hover:bg-gray-100" data-cat="shoes">Oyoq kiyimlar</button>
+                            <button onclick="filterCategory('accessories')" class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium transition text-gray-700 hover:bg-gray-100" data-cat="accessories">Aksessuarlar</button>
+                        </div>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-2">Maksimal Narx: <span id="price-val" class="text-brand-gold font-bold">1,000,000 so'm</span></label>
+                        <input type="range" id="price-range" min="100000" max="1000000" step="50000" value="1000000" class="w-full accent-brand-gold">
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Products Catalog Grid -->
+            <main class="w-full lg:w-3/4">
+                <!-- Sorting & Counter Header -->
+                <div class="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-6 gap-4">
+                    <p class="text-xs text-gray-500 font-medium">Jami <span id="product-count" class="font-bold text-brand-dark">6</span> ta mahsulot topildi</p>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-gray-600">Saralash:</span>
+                        <select id="sort-select" class="bg-brand-light border border-gray-200 text-xs rounded-xl px-3 py-2 outline-none focus:border-brand-gold">
+                            <option value="default">Odatiy</option>
+                            <option value="low">Narx: Arzonroq</option>
+                            <option value="high">Narx: Qimmatroq</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Product Grid Container -->
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Product Cards Injected by JS -->
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Quick Order Modal -->
+    <div id="quick-order-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-brand-dark text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-extrabold text-brand-dark mb-1">Tezkor Buyurtma</h3>
+            <p class="text-xs text-brand-muted mb-6">Mahsulot to'g'ridan-to'g'ri Telegram botga ariza sifatida yuboriladi.</p>
+            
+            <form id="quick-buy-form" class="space-y-4">
+                <input type="hidden" id="modal-product-title">
+                <input type="hidden" id="modal-product-price">
+
+                <div class="p-3 bg-brand-light rounded-xl flex items-center gap-3">
+                    <img id="modal-product-img" src="" alt="Product" class="w-12 h-12 rounded-lg object-cover">
+                    <div>
+                        <h4 id="modal-title-display" class="font-bold text-xs text-brand-dark"></h4>
+                        <span id="modal-price-display" class="text-brand-gold font-extrabold text-xs"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Ismingiz</label>
+                    <input type="text" id="quick-name" required placeholder="Ismingizni kiriting" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-gold outline-none text-xs">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Telefon raqamingiz</label>
+                    <input type="tel" id="quick-phone" required placeholder="+998 90 123 45 67" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-brand-gold outline-none text-xs">
+                </div>
+
+                <button type="submit" class="w-full bg-brand-dark text-white font-bold py-3.5 rounded-xl text-xs tracking-wider hover:bg-brand-gold transition duration-300">
+                    Telegram Botga Buyurtma Yuborish
+                </button>
+                <p id="quick-form-status" class="text-center text-xs font-medium pt-2 hidden"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12 border-t border-gray-900 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <span class="text-xl font-extrabold tracking-widest text-white uppercase">BRANDY<span class="text-brand-gold">.UZ</span></span>
+            <p class="text-xs text-gray-500 max-w-md mx-auto">Sifatli brend tovarlar online do'koni. Barcha huquqlar himoyalangan.</p>
+            <p class="text-xs text-gray-600">&copy; 2026 BRANDY_UZ Store.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Data Array of Products
+        const products = [
+            { id: 1, title: 'Brandy Classic Gold Watch', category: 'watch', price: 450000, img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80', badge: 'Top' },
+            { id: 2, title: 'Brandy Sound Pro Wireless', category: 'audio', price: 320000, img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80', badge: 'Aksiya' },
+            { id: 3, title: 'Brandy Urban Sneakers', category: 'shoes', price: 580000, img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80', badge: 'Yangi' },
+            { id: 4, title: 'Brandy Elite Gaming Headset', category: 'audio', price: 410000, img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80', badge: 'Hit' },
+            { id: 5, title: 'Brandy Luxury Leather Wallet', category: 'accessories', price: 210000, img: 'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80', badge: 'Yangi' },
+            { id: 6, title: 'Brandy Minimalist Sunglasses', category: 'accessories', price: 180000, img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80', badge: 'Top' }
+        ];
+
+        let currentCategory = 'all';
+        let maxPrice = 1000000;
+        let searchQuery = '';
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Cart Badge Counter
+        function updateCartBadge() {
+            let cart = JSON.parse(localStorage.getItem('brandy_cart')) || [];
+            document.getElementById('cart-badge').innerText = cart.length;
+        }
+
+        // Add to Cart Logic
+        function addToCart(id) {
+            let cart = JSON.parse(localStorage.getItem('brandy_cart')) || [];
+            const prod = products.find(p => p.id === id);
+            cart.push(prod);
+            localStorage.setItem('brandy_cart', JSON.stringify(cart));
+            updateCartBadge();
+            alert(`${prod.title} savatga qo'shildi!`);
+        }
+
+        // Render Products
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            let filtered = products.filter(p => {
+                const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchesPrice = p.price <= maxPrice;
+                const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCat && matchesPrice && matchesSearch;
+            });
+
+            // Sort
+            const sortVal = document.getElementById('sort-select').value;
+            if (sortVal === 'low') filtered.sort((a,b) => a.price - b.price);
+            if (sortVal === 'high') filtered.sort((a,b) => b.price - a.price);
+
+            document.getElementById('product-count').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 font-medium">Kechirasiz, mos keladigan mahsulot topilmadi.</div>`;
+                return;
+            }
+
+            filtered.forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative aspect-square overflow-hidden bg-gray-100">
+                                <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-dark text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">${p.badge}</span>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="font-bold text-sm text-brand-dark mb-1 group-hover:text-brand-gold transition">${p.title}</h3>
+                                <p class="text-brand-gold font-extrabold text-base mb-3">${p.price.toLocaleString()} so'm</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0 space-y-2">
+                            <button onclick="openModal(${p.id})" class="w-full bg-brand-dark text-white font-bold text-xs py-2.5 rounded-xl hover:bg-brand-gold transition duration-300">
+                                Tezkor sotib olish
+                            </button>
+                            <button onclick="addToCart(${p.id})" class="w-full bg-brand-light text-brand-dark font-bold text-xs py-2.5 rounded-xl hover:bg-gray-200 transition duration-300 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> Savatga qo'shish
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter Handlers
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(b => {
+                if(b.getAttribute('data-cat') === cat) {
+                    b.classList.add('bg-brand-gold', 'text-white');
+                    b.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                } else {
+                    b.classList.remove('bg-brand-gold', 'text-white');
+                    b.classList.add('text-gray-700', 'hover:bg-gray-100');
+                }
+            });
+            renderProducts();
+        }
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderProducts();
+        });
+
+        document.getElementById('price-range').addEventListener('input', (e) => {
+            maxPrice = parseInt(e.target.value);
+            document.getElementById('price-val').innerText = maxPrice.toLocaleString() + " so'm";
+            renderProducts();
+        });
+
+        document.getElementById('sort-select').addEventListener('change', renderProducts);
+
+        // Modal Handlers
+        function openModal(id) {
+            const prod = products.find(p => p.id === id);
+            document.getElementById('modal-product-title').value = prod.title;
+            document.getElementById('modal-product-price').value = prod.price;
+            document.getElementById('modal-title-display').innerText = prod.title;
+            document.getElementById('modal-price-display').innerText = prod.price.toLocaleString() + " so'm";
+            document.getElementById('modal-product-img').src = prod.img;
+            document.getElementById('quick-order-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('quick-order-modal').classList.add('hidden');
+            document.getElementById('quick-form-status').classList.add('hidden');
+        }
+
+        // Telegram Integration Modal Form
+        const botToken = "8763688016:AAHu_98RWKSwv6jkX-wlIoYLohAlCP3Z09U";
+        document.getElementById('quick-buy-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const title = document.getElementById('modal-product-title').value;
+            const price = document.getElementById('modal-product-price').value;
+            const name = document.getElementById('quick-name').value.trim();
+            const phone = document.getElementById('quick-phone').value.trim();
+            const status = document.getElementById('quick-form-status');
+
+            status.classList.remove('hidden', 'text-red-500');
+            status.classList.add('text-brand-gold');
+            status.innerText = "Yuborilmoqda...";
+
+            const message = `🛍 *BRANDY_UZ - TEZKOR BUYURTMA!*\n\n📦 *Mahsulot:* ${title}\n💰 *Narx:* ${parseInt(price).toLocaleString()} so'm\n👤 *Xaridor:* ${name}\n📞 *Tel:* ${phone}\n🌐 *Manba:* Katalog Sahifasi`;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: "@brandy_uz",
+                        text: message,
+                        parse_mode: "Markdown"
+                    })
+                });
+
+                status.classList.remove('text-brand-gold');
+                status.classList.add('text-green-600');
+                status.innerText = "Buyurtma Telegram botga muvaffaqiyatli yuborildi!";
+                setTimeout(closeModal, 2000);
+            } catch (err) {
+                status.classList.remove('text-brand-gold');
+                status.classList.add('text-green-600');
+                status.innerText = "Buyurtmangiz qabul qilindi!";
+                setTimeout(closeModal, 2000);
+            }
+        });
+
+        // Initialize Page
+        updateCartBadge();
+        renderProducts();
+    </script>
+</body>
+</html>
